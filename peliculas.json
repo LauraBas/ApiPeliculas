@@ -1,53 +1,59 @@
 {
   "peliculas": [
     {
+      "id": 2,
       "nombre": "Superman",
       "director": "M. Night Shyamalan",
-      "clasificacion": "Drama",
-      "id": 2
+      "image": "img/inseption.jpg",
+      "clasificacion": "Drama"
     },
     {
       "id": 4,
       "nombre": "300",
       "director": "Zack Snyder",
+      "image": "img/amelie.jpg",
       "clasificacion": "Acción"
     },
     {
       "id": 5,
       "nombre": "El silencio de los corderos",
       "director": "Jonathan Demme",
+      "image": "img/titanic.jpg",
       "clasificacion": "Drama"
     },
     {
       "id": 6,
       "nombre": "Forrest Gump",
       "director": "Robert Zemeckis",
+      "image": "img/tenet.jpg",
       "clasificacion": "Comedia"
     },
     {
       "id": 7,
       "nombre": "Las Hurdes",
       "director": "Luis Buñuel",
+      "image": "img/titanic.jpg",
       "clasificacion": "Documental"
     },
-    {
-      "id": 8
-    },
+    
     {
       "nombre": "El sexto sentido",
       "director": "M. Night Shyamalan",
+      "image": "img/amelie.jpg",
       "clasificacion": "Drama",
       "id": 9
     },
     {
       "nombre": "Sagan",
       "director": "M. Night Shyamalan",
+      "image": "img/tenet.jpg",
       "clasificacion": "Drama",
       "id": 10
     },
     {
       "nombre": "Batman",
       "director": "M. Night Shyamalan",
+      "image": "img/inseption.jpg",
       "clasificacion": "Drama",
       "id": 11
     },
@@ -55,9 +61,12 @@
       "id": 1,
       "nombre": "Pulp Fiction",
       "director": "Tarantino",
+      "image": "img/titanic.jpg",
       "clasificacion": "Acción"
     }
   ],
+
+
   "clasificaciones": [
     {
       "nombre": "Drama",
