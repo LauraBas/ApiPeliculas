@@ -1,5 +1,10 @@
 #movieTitle{
     text-align: center;
 }
-
+#create-movie{
+    display: flex;
+    flex-direction: column;
+    padding: 3vw;
+    max-width: 50em;
+}
 

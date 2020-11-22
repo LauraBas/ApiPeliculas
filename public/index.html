@@ -9,6 +9,26 @@
 </head>
 <body>
     <h2 id="movieTitle">Movies</h2>
+    <div id='create-movie'>
+        <h3>Add a new movie</h3>
+        <form id="movie-form">
+            <div class="form-group">
+                <input  class="form-control" id="nombre" placeholder="nombre">
+            </div>
+            <div class="form-group">
+                <input  class="form-control" id="director" placeholder="director">
+            </div>
+            <div class="form-group">
+                <input  class="form-control" id="image" placeholder="image">
+            </div>
+            <div class="form-group">
+                <input  class="form-control"id="clasificacion" placeholder="clasificacion">            
+            </div>
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="Add Movie">
+            </div>
+        </form>
+    </div>
     <div class="container" id="movies"></div>    
 </body>
 <script src="crud.js"></script>

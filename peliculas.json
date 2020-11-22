@@ -1,6 +1,13 @@
 {
   "peliculas": [
     {
+      "id": 1,
+      "nombre": "Pulp Fiction",
+      "director": "Tarantino",
+      "image": "img/titanic.jpg",
+      "clasificacion": "Acción"
+    },
+    {
       "id": 2,
       "nombre": "Superman",
       "director": "M. Night Shyamalan",
@@ -35,7 +42,6 @@
       "image": "img/titanic.jpg",
       "clasificacion": "Documental"
     },
-    
     {
       "nombre": "El sexto sentido",
       "director": "M. Night Shyamalan",
@@ -58,15 +64,20 @@
       "id": 11
     },
     {
-      "id": 1,
-      "nombre": "Pulp Fiction",
-      "director": "Tarantino",
-      "image": "img/titanic.jpg",
-      "clasificacion": "Acción"
+      "nombre": "",
+      "director": "george lucas",
+      "image": "",
+      "clasificacion": "",
+      "id": 21
+    },
+    {
+      "nombre": "Laura Rita",
+      "director": "george lucas",
+      "image": "img/amelie.jpg",
+      "clasificacion": "accion",
+      "id": 22
     }
   ],
-
-
   "clasificaciones": [
     {
       "nombre": "Drama",
