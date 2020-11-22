@@ -52,6 +52,23 @@ function createMovie(movieList) {
     body.appendChild(clasificacionCard);
     cardMovie.appendChild(body);
 
+    const buttonDelete = document.createElement("button");
+    buttonDelete.className = "btn btn-danger";
+    buttonDelete.setAttribute("type", "delete");
+    buttonDelete.innerHTML = "Delete";
+    body.appendChild(buttonDelete);
+
+    const buttonEdit = document.createElement("button");
+    buttonEdit.className = "btn btn-info";
+    buttonEdit.innerHTML = "Edit";
+    body.appendChild(buttonEdit);
+    
+    const buttonDiv = document.createElement("div");
+    buttonDiv.className = "btn-group mr-2";
+    buttonDiv.appendChild(buttonEdit);
+    buttonDiv.appendChild(buttonDelete);
+    cardMovie.appendChild(buttonDiv);
+
     movieCard.appendChild(cardMovie);
     console.log(movie);
   });
@@ -70,8 +87,8 @@ movieForm.addEventListener("submit", (e) => {
   fetch("http://localhost:3000/peliculas", {
     method: "POST",
     headers: {
-        'Content-Type': 'application/json'
-      },
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({ ...formData }),
   })
     .then((response) => response.json())
