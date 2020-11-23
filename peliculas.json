@@ -1,48 +1,6 @@
 {
   "peliculas": [
     {
-      "id": 1,
-      "nombre": "Pulp Fiction",
-      "director": "Tarantino",
-      "image": "img/titanic.jpg",
-      "clasificacion": "Acción"
-    },
-    {
-      "id": 2,
-      "nombre": "Superman",
-      "director": "M. Night Shyamalan",
-      "image": "img/inseption.jpg",
-      "clasificacion": "Drama"
-    },
-    {
-      "id": 4,
-      "nombre": "300",
-      "director": "Zack Snyder",
-      "image": "img/amelie.jpg",
-      "clasificacion": "Acción"
-    },
-    {
-      "id": 5,
-      "nombre": "El silencio de los corderos",
-      "director": "Jonathan Demme",
-      "image": "img/titanic.jpg",
-      "clasificacion": "Drama"
-    },
-    {
-      "id": 6,
-      "nombre": "Forrest Gump",
-      "director": "Robert Zemeckis",
-      "image": "img/tenet.jpg",
-      "clasificacion": "Comedia"
-    },
-    {
-      "id": 7,
-      "nombre": "Las Hurdes",
-      "director": "Luis Buñuel",
-      "image": "img/titanic.jpg",
-      "clasificacion": "Documental"
-    },
-    {
       "nombre": "El sexto sentido",
       "director": "M. Night Shyamalan",
       "image": "img/amelie.jpg",
@@ -50,25 +8,39 @@
       "id": 9
     },
     {
-      "nombre": "Sagan",
-      "director": "M. Night Shyamalan",
-      "image": "img/tenet.jpg",
-      "clasificacion": "Drama",
-      "id": 10
-    },
-    {
-      "nombre": "Batman",
-      "director": "M. Night Shyamalan",
-      "image": "img/inseption.jpg",
-      "clasificacion": "Drama",
-      "id": 11
+      "nombre": "Laura Rita",
+      "director": "dsf",
+      "image": "img/amelie.jpg",
+      "clasificacion": "dfsf",
+      "id": 12
     },
     {
       "nombre": "Laura Rita",
-      "director": "george lucas",
+      "director": "dsf",
       "image": "img/amelie.jpg",
+      "clasificacion": "dfsf",
+      "id": 13
+    },
+    {
+      "nombre": "Laura Rita",
+      "director": "dsf",
+      "image": "img/amelie.jpg",
+      "clasificacion": "dfsf",
+      "id": 15
+    },
+    {
+      "nombre": "Laura Rita",
+      "director": "dsf",
+      "image": "img/amelie.jpg",
+      "clasificacion": "dfsf",
+      "id": 16
+    },
+    {
+      "nombre": "star wars",
+      "director": "fsdfdsf",
+      "image": "img/tenet.jpg",
       "clasificacion": "accion",
-      "id": 22
+      "id": 17
     }
   ],
   "clasificaciones": [

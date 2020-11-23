@@ -1,13 +1,21 @@
 "use strict";
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    getAllMovies();
+}, false);
+
 let movieCard = document.getElementById("movies");
 const movieForm = document.querySelector("#movie-form");
 
-fetch("http://localhost:3000/peliculas")
-  .then((response) => response.json())
-  .then((movies) => {
-    createMovie(movies);
-  });
+
+function getAllMovies(){
+    fetch("http://localhost:3000/peliculas")
+      .then((response) => response.json())
+      .then((movies) => {
+        createMovie(movies);
+      });
+}
 
 function createMovie(movieList) {
   movieList.forEach((movie) => {
@@ -55,6 +63,7 @@ function createMovie(movieList) {
     const buttonDelete = document.createElement("button");
     buttonDelete.className = "btn btn-danger";
     buttonDelete.setAttribute("type", "delete");
+    buttonDelete.addEventListener("click", () => { deleteMovie(movie) });
     buttonDelete.innerHTML = "Delete";
     body.appendChild(buttonDelete);
 
@@ -139,6 +148,37 @@ function newMovie(movie) {
   body.appendChild(clasificacionCard);
   cardMovie.appendChild(body);
 
+  const buttonDelete = document.createElement("button");
+  buttonDelete.className = "btn btn-danger";
+  buttonDelete.setAttribute("type", "delete");
+  buttonDelete.addEventListener("click", () => { deleteMovie(movie) });
+  buttonDelete.innerHTML = "Delete";
+  body.appendChild(buttonDelete);
+
+  const buttonEdit = document.createElement("button");
+  buttonEdit.className = "btn btn-info";
+  buttonEdit.innerHTML = "Edit";
+  body.appendChild(buttonEdit);
+  
+  const buttonDiv = document.createElement("div");
+  buttonDiv.className = "btn-group mr-2";
+  buttonDiv.appendChild(buttonEdit);
+  buttonDiv.appendChild(buttonDelete);
+  cardMovie.appendChild(buttonDiv);
+
   movieCard.appendChild(cardMovie);
   console.log(movie);
 }
+
+
+function deleteMovie(movie){
+    let id = movie.id;
+    console.log(id);
+    fetch(`http://localhost:3000/peliculas/${id}`, {
+        method: "DELETE"
+      })
+        .then(response => response.json())
+    return getAllMovies();
+    
+}
+
