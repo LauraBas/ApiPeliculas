@@ -69,6 +69,7 @@ function createMovie(movieList) {
 
     const buttonEdit = document.createElement("button");
     buttonEdit.className = "btn btn-info";
+    buttonEdit.addEventListener("click", () => { editMovie(movie) });
     buttonEdit.innerHTML = "Edit";
     body.appendChild(buttonEdit);
     
@@ -157,6 +158,7 @@ function newMovie(movie) {
 
   const buttonEdit = document.createElement("button");
   buttonEdit.className = "btn btn-info";
+  buttonEdit.addEventListener("click", () => { editMovie(movie) });
   buttonEdit.innerHTML = "Edit";
   body.appendChild(buttonEdit);
   
@@ -173,12 +175,24 @@ function newMovie(movie) {
 
 function deleteMovie(movie){
     let id = movie.id;
-    console.log(id);
     fetch(`http://localhost:3000/peliculas/${id}`, {
-        method: "DELETE"
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json'
+          }
       })
-        .then(response => response.json())
-    return getAllMovies();
+        .then(response => clearAllMovies())
+        .then(() => getAllMovies())
     
+}
+
+function claerAllMovies(){
+    movieCard.innerHTML = ""
+}
+
+
+function editMovie(movie){
+    console.log(movie)
+
 }
 

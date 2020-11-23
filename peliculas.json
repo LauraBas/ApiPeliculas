@@ -1,46 +1,32 @@
 {
   "peliculas": [
     {
-      "nombre": "El sexto sentido",
-      "director": "M. Night Shyamalan",
-      "image": "img/amelie.jpg",
-      "clasificacion": "Drama",
-      "id": 9
-    },
-    {
       "nombre": "Laura Rita",
       "director": "dsf",
       "image": "img/amelie.jpg",
-      "clasificacion": "dfsf",
-      "id": 12
-    },
-    {
-      "nombre": "Laura Rita",
-      "director": "dsf",
-      "image": "img/amelie.jpg",
-      "clasificacion": "dfsf",
-      "id": 13
-    },
-    {
-      "nombre": "Laura Rita",
-      "director": "dsf",
-      "image": "img/amelie.jpg",
-      "clasificacion": "dfsf",
-      "id": 15
-    },
-    {
-      "nombre": "Laura Rita",
-      "director": "dsf",
-      "image": "img/amelie.jpg",
-      "clasificacion": "dfsf",
-      "id": 16
-    },
-    {
-      "nombre": "star wars",
-      "director": "fsdfdsf",
-      "image": "img/tenet.jpg",
       "clasificacion": "accion",
-      "id": 17
+      "id": 2
+    },
+    {
+      "nombre": "Laura Rita",
+      "director": "dsf",
+      "image": "img/amelie.jpg",
+      "clasificacion": "accion",
+      "id": 3
+    },
+    {
+      "nombre": "Laura Rita",
+      "director": "dsf",
+      "image": "img/amelie.jpg",
+      "clasificacion": "accion",
+      "id": 4
+    },
+    {
+      "nombre": "Laura Rita",
+      "director": "dsf",
+      "image": "img/amelie.jpg",
+      "clasificacion": "accion",
+      "id": 6
     }
   ],
   "clasificaciones": [
