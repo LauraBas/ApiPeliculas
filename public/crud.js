@@ -7,107 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let movieCard = document.getElementById("movies");
 const movieForm = document.querySelector("#movie-form");
+const editForm = document.getElementById("edit");
 
 
-function getAllMovies(){
-    fetch("http://localhost:3000/peliculas")
-      .then((response) => response.json())
-      .then((movies) => {
-        createMovie(movies);
-      });
-}
-
-function createMovie(movieList) {
-  movieList.forEach((movie) => {
-    const cardMovie = document.createElement("div");
-    cardMovie.className = "card border";
-    cardMovie.style.cssText = "margin: 0.5vw;width: 18rem;";
-
-    const body = document.createElement("div");
-    body.className = "card-body";
-    body.style.cssText =
-      "display: flex; flex-direction:column; align-items: center";
-
-    const idCard = document.createElement("p");
-    idCard.innerHTML = movie.id;
-    idCard.className = "card-title";
-    body.appendChild(idCard);
-    cardMovie.appendChild(body);
-
-    const nombreCard = document.createElement("h5");
-    nombreCard.innerHTML = movie.nombre;
-    nombreCard.className = "card-header";
-    body.appendChild(nombreCard);
-    cardMovie.appendChild(body);
-
-    const directorCard = document.createElement("p");
-    directorCard.innerHTML = movie.director;
-    directorCard.className = "card-text";
-    body.appendChild(directorCard);
-    cardMovie.appendChild(body);
-
-    const imagenCard = document.createElement("img");
-    imagenCard.src = movie.image;
-    imagenCard.innerHTML = movie.image;
-    imagenCard.className = "card-img-top";
-    imagenCard.style.cssText = "width:10em";
-    body.appendChild(imagenCard);
-    cardMovie.appendChild(body);
-
-    const clasificacionCard = document.createElement("div");
-    clasificacionCard.innerHTML = movie.clasificacion;
-    clasificacionCard.className = "card-footer";
-    body.appendChild(clasificacionCard);
-    cardMovie.appendChild(body);
-
-    const buttonDelete = document.createElement("button");
-    buttonDelete.className = "btn btn-danger";
-    buttonDelete.setAttribute("type", "delete");
-    buttonDelete.addEventListener("click", () => { deleteMovie(movie) });
-    buttonDelete.innerHTML = "Delete";
-    body.appendChild(buttonDelete);
-
-    const buttonEdit = document.createElement("button");
-    buttonEdit.className = "btn btn-info";
-    buttonEdit.addEventListener("click", () => { editMovie(movie) });
-    buttonEdit.innerHTML = "Edit";
-    body.appendChild(buttonEdit);
-    
-    const buttonDiv = document.createElement("div");
-    buttonDiv.className = "btn-group mr-2";
-    buttonDiv.appendChild(buttonEdit);
-    buttonDiv.appendChild(buttonDelete);
-    cardMovie.appendChild(buttonDiv);
-
-    movieCard.appendChild(cardMovie);
-    console.log(movie);
-  });
-}
-
-movieForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  console.log(e.target);
-  let formData = {
-    nombre: movieForm.querySelector("#nombre").value,
-    director: movieForm.querySelector("#director").value,
-    image: movieForm.querySelector("#image").value,
-    clasificacion: movieForm.querySelector("#clasificacion").value,
-  };
-
-  fetch("http://localhost:3000/peliculas", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ ...formData }),
-  })
-    .then((response) => response.json())
-    .then((movie) => {
-      newMovie(movie);
-    });
-});
-
-function newMovie(movie) {
+function printMovie(movie){
   const cardMovie = document.createElement("div");
   cardMovie.className = "card border";
   cardMovie.style.cssText = "margin: 0.5vw;width: 18rem;";
@@ -173,6 +76,38 @@ function newMovie(movie) {
 }
 
 
+function getAllMovies(){
+    fetch("http://localhost:3000/peliculas")
+      .then((response) => response.json())
+      .then((movies) => { movies.forEach((movie) => {printMovie(movie)});
+      });
+}
+
+
+movieForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log(e.target);
+  let formData = {
+    nombre: movieForm.querySelector("#nombre").value,
+    director: movieForm.querySelector("#director").value,
+    image: movieForm.querySelector("#image").value,
+    clasificacion: movieForm.querySelector("#clasificacion").value,
+  };
+
+  fetch("http://localhost:3000/peliculas", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ ...formData }),
+  })
+    .then((response) => response.json())
+    .then((movie) => {
+      printMovie(movie);
+    });
+});
+
+
 function deleteMovie(movie){
     let id = movie.id;
     fetch(`http://localhost:3000/peliculas/${id}`, {
@@ -186,13 +121,102 @@ function deleteMovie(movie){
     
 }
 
-function claerAllMovies(){
+function clearAllMovies(){
     movieCard.innerHTML = ""
 }
 
 
 function editMovie(movie){
-    console.log(movie)
 
+  const body = document.createElement("div");
+  body.style.cssText = "display: flex; flex-direction: column; max-width:20rem";
+
+
+  
+  const editTitle = document.createElement("h6");
+  editTitle.innerHTML = "Edit Movie";
+  body.appendChild(editTitle);
+  
+  const idCard = document.createElement("p");
+  idCard.innerHTML = movie.id;
+  idCard.className = "card-title";
+  body.appendChild(idCard);
+  
+
+  editForm.appendChild(body);
+  const editNombre = document.createElement("input");
+  editNombre.className = "form-group";
+  editNombre.setAttribute("value", `${movie.nombre}`);
+  editNombre.setAttribute("id", "nombreId");
+  body.appendChild(editNombre);
+
+  const editDirector = document.createElement("input");
+  editDirector.className = "form-group";
+  editDirector.setAttribute("value", `${movie.director}`);
+  editDirector.setAttribute("id","directorId");
+  body.appendChild(editDirector);
+
+  const editImage = document.createElement("input");
+  editImage.className = "form-group";
+  editImage.setAttribute("value", `${movie.image}`);
+  editImage.setAttribute("id", "imageId");
+  body.appendChild(editImage);
+
+  const editClasificacion = document.createElement("input");
+  editClasificacion.className = "form-group";
+  editClasificacion.setAttribute("value", `${movie.clasificacion}`);
+  editClasificacion.setAttribute("id","clasificacionId");
+  body.appendChild(editClasificacion);
+ 
+  const editButton = document.createElement("button");
+  editButton.className = "btn btn-info";
+  editButton.innerHTML = "Edit";
+  editButton.setAttribute("type", "submit");
+  //editButton.addEventListener("submit", (e) => { event.preventDefault() }); // {updateMovie(movie, editData)}
+  body.appendChild(editButton);
+  
+
+  const cancelButton = document.createElement("button");
+  cancelButton.className = "btn btn-danger"
+  cancelButton.innerHTML = "Cancel";
+  cancelButton.addEventListener("click", () => { body.innerHTML = "" });
+  body.appendChild(cancelButton);
+
+  const buttonDiv = document.createElement("div");
+  buttonDiv.className = "btn-group mr-2";
+  buttonDiv.appendChild(cancelButton);
+  buttonDiv.appendChild(editButton);
+
+  body.appendChild(buttonDiv);
+  
+
+
+  editForm.addEventListener("submit", (e) => { 
+    e.preventDefault()
+      let editData = {
+        id: idCard.innerHTML,
+        nombre: editNombre.value,
+        director: editDirector.value,
+        image: editImage.value,
+        clasificacion: editClasificacion.value,
+    };
+    updateMovie(editData);
+
+  });
 }
+  
+ function updateMovie(editData) {
+
+   fetch(`http://localhost:3000/peliculas/${editData.id}`, {
+     method: 'PUT',
+     body: JSON.stringify({ ...editData}),
+     headers: {
+       'Content-Type': 'application/json'
+     }
+   })
+     .then(response => clearAllMovies())
+     .then(() => getAllMovies())
+ }
+
+
 

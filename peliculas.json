@@ -1,32 +1,46 @@
 {
   "peliculas": [
     {
-      "nombre": "Laura Rita",
-      "director": "dsf",
+      "id": 3,
+      "nombre": "Amelie",
+      "director": "Jean-Pierre Jeunet",
+      "image": "img/amelie.jpg",
+      "clasificacion": "test"
+    },
+    {
+      "id": 4,
+      "nombre": "Titanic",
+      "director": "James Cameron",
+      "image": "img/titanic.jpg",
+      "clasificacion": "drama"
+    },
+    {
+      "id": 6,
+      "nombre": "Tenet",
+      "director": "Christopher Nolan",
+      "image": "img/tenet.jpg",
+      "clasificacion": "accion"
+    },
+    {
+      "nombre": "star wars",
+      "director": "george lucas",
       "image": "img/amelie.jpg",
       "clasificacion": "accion",
-      "id": 2
+      "id": 7
+    },
+    {
+      "nombre": "star wars",
+      "director": "george lucas",
+      "image": "img/amelie.jpg",
+      "clasificacion": "accion",
+      "id": 8
     },
     {
       "nombre": "Laura Rita",
       "director": "dsf",
-      "image": "img/amelie.jpg",
+      "image": "img/titanic.jpg",
       "clasificacion": "accion",
-      "id": 3
-    },
-    {
-      "nombre": "Laura Rita",
-      "director": "dsf",
-      "image": "img/amelie.jpg",
-      "clasificacion": "accion",
-      "id": 4
-    },
-    {
-      "nombre": "Laura Rita",
-      "director": "dsf",
-      "image": "img/amelie.jpg",
-      "clasificacion": "accion",
-      "id": 6
+      "id": 9
     }
   ],
   "clasificaciones": [
