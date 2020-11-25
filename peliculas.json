@@ -1,13 +1,6 @@
 {
   "peliculas": [
     {
-      "id": 3,
-      "nombre": "Amelie",
-      "director": "Jean-Pierre Jeunet",
-      "image": "img/amelie.jpg",
-      "clasificacion": "test"
-    },
-    {
       "id": 4,
       "nombre": "Titanic",
       "director": "James Cameron",
@@ -16,31 +9,24 @@
     },
     {
       "id": 6,
-      "nombre": "Tenet",
+      "nombre": "TeneT",
       "director": "Christopher Nolan",
       "image": "img/tenet.jpg",
       "clasificacion": "accion"
     },
     {
-      "nombre": "star wars",
-      "director": "george lucas",
-      "image": "img/amelie.jpg",
-      "clasificacion": "accion",
-      "id": 7
+      "id": 7,
+      "nombre": "Piratas del Caribe",
+      "director": "Jack Sparrow",
+      "image": "img/5.jpg",
+      "clasificacion": "accion"
     },
     {
-      "nombre": "star wars",
-      "director": "george lucas",
+      "nombre": "Amelie",
+      "director": "Yann Tiersen",
       "image": "img/amelie.jpg",
-      "clasificacion": "accion",
+      "clasificacion": "drama",
       "id": 8
-    },
-    {
-      "nombre": "Laura Rita",
-      "director": "dsf",
-      "image": "img/titanic.jpg",
-      "clasificacion": "accion",
-      "id": 9
     }
   ],
   "clasificaciones": [

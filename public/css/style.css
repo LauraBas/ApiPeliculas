@@ -1,0 +1,91 @@
+#movieTitle {
+    text-align: start;
+    color: white;
+  }
+  #create-movie {
+    display: flex;
+    flex-direction: column;
+    padding: 3vw;
+    max-width: 50em;
+  }
+  h3{
+      color:#fff;
+      padding: 1em;
+  }
+  
+  .homedirector {
+    position: relative;
+    bottom: 3px;
+    line-height: 1.3;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 7px;
+    font-size: 14px;
+    color: #fff;
+    width: 21em;
+  }
+  
+  .homeclas {
+    position: relative;
+    bottom: 3px;
+    text-align: end;
+    padding: 7px;
+    font-size: 14px;
+    color: #fff;
+    width: 21em;
+  }
+  
+  .homeid {
+    position: absolute;
+    bottom: 3px;
+    line-height: 1.3;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 7px;
+    right: 0;
+    font-size: 14px;
+    color: #fff;
+  }
+  
+  .homebutton {
+      position: relative;
+      bottom: -47px;
+      padding: 7px;
+      font-size: 14px;
+  }
+  .mov {
+    align-items: center;
+    flex-direction: column;
+    float: left;
+    width: calc(20% - 20px);
+    padding: 4em 1em 0 1em;
+    position: relative;
+    display: flex;
+  }
+  
+  .form-control{
+  
+      margin: 0.3em;
+  }
+  
+  #edit{
+      padding:  0.7em;
+  }
+  .btn-div{
+      margin: 0.5em 0.6em;
+  }
+  .idEdit{
+      color: #fff;
+      padding:1em 0px 0px 0px;
+  }
+  .headerMovie {
+      top: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 999;
+  }
+  #movies{
+      float: left;
+      width: 100%;
+      padding: 1em;
+  }

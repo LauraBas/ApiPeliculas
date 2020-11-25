@@ -1,72 +1,65 @@
 "use strict";
 
-
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
     getAllMovies();
-}, false);
+  },
+  false
+);
 
 let movieCard = document.getElementById("movies");
 const movieForm = document.querySelector("#movie-form");
 const editForm = document.getElementById("edit");
 
-
-function printMovie(movie){
+function printMovie(movie) {
   const cardMovie = document.createElement("div");
-  cardMovie.className = "card border";
+  cardMovie.className = "mov";
   cardMovie.style.cssText = "margin: 0.5vw;width: 18rem;";
-
-  const body = document.createElement("div");
-  body.className = "card-body";
-  body.style.cssText =
-    "display: flex; flex-direction:column; align-items: center";
 
   const idCard = document.createElement("p");
   idCard.innerHTML = movie.id;
-  idCard.className = "card-title";
-  body.appendChild(idCard);
-  cardMovie.appendChild(body);
+  idCard.className = "homeid";
+  cardMovie.appendChild(idCard);
+
+  const clasificacionCard = document.createElement("div");
+  clasificacionCard.innerHTML = movie.clasificacion;
+  clasificacionCard.className = "homeclas";
+  cardMovie.appendChild(clasificacionCard);
 
   const nombreCard = document.createElement("h5");
   nombreCard.innerHTML = movie.nombre;
-  nombreCard.className = "card-header";
-  body.appendChild(nombreCard);
-  cardMovie.appendChild(body);
+  nombreCard.className = "homedirector";
+  cardMovie.appendChild(nombreCard);
 
   const directorCard = document.createElement("p");
   directorCard.innerHTML = movie.director;
-  directorCard.className = "card-text";
-  body.appendChild(directorCard);
-  cardMovie.appendChild(body);
+  directorCard.className = "hometitle";
+  cardMovie.appendChild(directorCard);
 
   const imagenCard = document.createElement("img");
   imagenCard.src = movie.image;
   imagenCard.innerHTML = movie.image;
-  imagenCard.className = "card-img-top";
   imagenCard.style.cssText = "width:10em";
-  body.appendChild(imagenCard);
-  cardMovie.appendChild(body);
-
-  const clasificacionCard = document.createElement("div");
-  clasificacionCard.innerHTML = movie.clasificacion;
-  clasificacionCard.className = "card-footer";
-  body.appendChild(clasificacionCard);
-  cardMovie.appendChild(body);
+  cardMovie.appendChild(imagenCard);
 
   const buttonDelete = document.createElement("button");
   buttonDelete.className = "btn btn-danger";
   buttonDelete.setAttribute("type", "delete");
-  buttonDelete.addEventListener("click", () => { deleteMovie(movie) });
+  buttonDelete.addEventListener("click", () => {
+    deleteMovie(movie);
+  });
   buttonDelete.innerHTML = "Delete";
-  body.appendChild(buttonDelete);
 
   const buttonEdit = document.createElement("button");
   buttonEdit.className = "btn btn-info";
-  buttonEdit.addEventListener("click", () => { editMovie(movie) });
+  buttonEdit.addEventListener("click", () => {
+    editMovie(movie);
+  });
   buttonEdit.innerHTML = "Edit";
-  body.appendChild(buttonEdit);
-  
+
   const buttonDiv = document.createElement("div");
-  buttonDiv.className = "btn-group mr-2";
+  buttonDiv.className = "btn-group mr-2 homebutton";
   buttonDiv.appendChild(buttonEdit);
   buttonDiv.appendChild(buttonDelete);
   cardMovie.appendChild(buttonDiv);
@@ -75,14 +68,15 @@ function printMovie(movie){
   console.log(movie);
 }
 
-
-function getAllMovies(){
-    fetch("http://localhost:3000/peliculas")
-      .then((response) => response.json())
-      .then((movies) => { movies.forEach((movie) => {printMovie(movie)});
+function getAllMovies() {
+  fetch("http://localhost:3000/peliculas")
+    .then((response) => response.json())
+    .then((movies) => {
+      movies.forEach((movie) => {
+        printMovie(movie);
       });
+    });
 }
-
 
 movieForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -107,116 +101,104 @@ movieForm.addEventListener("submit", (e) => {
     });
 });
 
-
-function deleteMovie(movie){
-    let id = movie.id;
-    fetch(`http://localhost:3000/peliculas/${id}`, {
-        method: "DELETE",
-        headers: {
-            'Content-Type': 'application/json'
-          }
-      })
-        .then(response => clearAllMovies())
-        .then(() => getAllMovies())
-    
+function deleteMovie(movie) {
+  let id = movie.id;
+  fetch(`http://localhost:3000/peliculas/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => clearAllMovies())
+    .then(() => getAllMovies());
 }
 
-function clearAllMovies(){
-    movieCard.innerHTML = ""
+function clearAllMovies() {
+  movieCard.innerHTML = "";
 }
 
-
-function editMovie(movie){
-
+function editMovie(movie) {
   const body = document.createElement("div");
+  body.className = "form-group"
   body.style.cssText = "display: flex; flex-direction: column; max-width:20rem";
 
-
-  
   const editTitle = document.createElement("h6");
   editTitle.innerHTML = "Edit Movie";
+  editTitle.style.cssText = "color: #fff"
   body.appendChild(editTitle);
-  
+
   const idCard = document.createElement("p");
   idCard.innerHTML = movie.id;
-  idCard.className = "card-title";
+  idCard.className = "card-title idEdit";
   body.appendChild(idCard);
-  
 
   editForm.appendChild(body);
   const editNombre = document.createElement("input");
-  editNombre.className = "form-group";
+  editNombre.className = "form-control";
   editNombre.setAttribute("value", `${movie.nombre}`);
   editNombre.setAttribute("id", "nombreId");
   body.appendChild(editNombre);
 
   const editDirector = document.createElement("input");
-  editDirector.className = "form-group";
+  editDirector.className = "form-control";
   editDirector.setAttribute("value", `${movie.director}`);
-  editDirector.setAttribute("id","directorId");
+  editDirector.setAttribute("id", "directorId");
   body.appendChild(editDirector);
 
   const editImage = document.createElement("input");
-  editImage.className = "form-group";
+  editImage.className = "form-control";
   editImage.setAttribute("value", `${movie.image}`);
   editImage.setAttribute("id", "imageId");
   body.appendChild(editImage);
 
   const editClasificacion = document.createElement("input");
-  editClasificacion.className = "form-group";
+  editClasificacion.className = "form-control";
   editClasificacion.setAttribute("value", `${movie.clasificacion}`);
-  editClasificacion.setAttribute("id","clasificacionId");
+  editClasificacion.setAttribute("id", "clasificacionId");
   body.appendChild(editClasificacion);
- 
+
   const editButton = document.createElement("button");
   editButton.className = "btn btn-info";
   editButton.innerHTML = "Edit";
   editButton.setAttribute("type", "submit");
-  //editButton.addEventListener("submit", (e) => { event.preventDefault() }); // {updateMovie(movie, editData)}
   body.appendChild(editButton);
-  
 
   const cancelButton = document.createElement("button");
-  cancelButton.className = "btn btn-danger"
+  cancelButton.className = "btn btn-danger";
   cancelButton.innerHTML = "Cancel";
-  cancelButton.addEventListener("click", () => { body.innerHTML = "" });
+  cancelButton.addEventListener("click", () => {
+    body.innerHTML = "";
+  });
   body.appendChild(cancelButton);
 
   const buttonDiv = document.createElement("div");
-  buttonDiv.className = "btn-group mr-2";
+  buttonDiv.className = "btn-group mr-2 form-group btn-div";
   buttonDiv.appendChild(cancelButton);
   buttonDiv.appendChild(editButton);
 
   body.appendChild(buttonDiv);
-  
 
-
-  editForm.addEventListener("submit", (e) => { 
-    e.preventDefault()
-      let editData = {
-        id: idCard.innerHTML,
-        nombre: editNombre.value,
-        director: editDirector.value,
-        image: editImage.value,
-        clasificacion: editClasificacion.value,
+  editForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let editData = {
+      id: idCard.innerHTML,
+      nombre: editNombre.value,
+      director: editDirector.value,
+      image: editImage.value,
+      clasificacion: editClasificacion.value,
     };
     updateMovie(editData);
-
   });
 }
-  
- function updateMovie(editData) {
 
-   fetch(`http://localhost:3000/peliculas/${editData.id}`, {
-     method: 'PUT',
-     body: JSON.stringify({ ...editData}),
-     headers: {
-       'Content-Type': 'application/json'
-     }
-   })
-     .then(response => clearAllMovies())
-     .then(() => getAllMovies())
- }
-
-
-
+function updateMovie(editData) {
+  fetch(`http://localhost:3000/peliculas/${editData.id}`, {
+    method: "PUT",
+    body: JSON.stringify({ ...editData }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => clearAllMovies())
+    .then(() => getAllMovies());
+}
