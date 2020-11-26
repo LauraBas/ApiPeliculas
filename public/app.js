@@ -47,13 +47,13 @@ function printMovieForm(){
   body.appendChild(editClasificacion);
 
   const addButton = document.createElement("button");
-  addButton.className = "btn btn-info";
+  addButton.className = "btn btn-light";
   addButton.innerHTML = "Done";
   addButton.setAttribute("type", "submit");
   body.appendChild(addButton);
 
   const cancelButton = document.createElement("button");
-  cancelButton.className = "btn btn-danger";
+  cancelButton.className = "btn btn-dark";
   cancelButton.innerHTML = "Cancel";
   cancelButton.addEventListener("click", () => {
     body.innerHTML = "";
@@ -127,7 +127,7 @@ function printMovie(movie) {
   cardMovie.appendChild(imagenCard);
 
   const buttonDelete = document.createElement("button");
-  buttonDelete.className = "btn btn-danger";
+  buttonDelete.className = "btn btn-dark";
   buttonDelete.setAttribute("type", "delete");
   buttonDelete.addEventListener("click", () => {
     deleteMovie(movie);
@@ -135,9 +135,10 @@ function printMovie(movie) {
   buttonDelete.innerHTML = "Delete";
 
   const buttonEdit = document.createElement("button");
-  buttonEdit.className = "btn btn-info";
+  buttonEdit.className = "btn btn-secondary";
   buttonEdit.addEventListener("click", () => {
     editMovie(movie);
+    window.scrollTo(0, 200);
   });
   buttonEdit.innerHTML = "Edit";
 
@@ -220,13 +221,13 @@ function editMovie(movie) {
   body.appendChild(editClasificacion);
 
   const editButton = document.createElement("button");
-  editButton.className = "btn btn-info";
+  editButton.className = "btn btn-light";
   editButton.innerHTML = "Edit";
   editButton.setAttribute("type", "submit");
   body.appendChild(editButton);
 
   const cancelButton = document.createElement("button");
-  cancelButton.className = "btn btn-danger";
+  cancelButton.className = "btn btn-dark";
   cancelButton.innerHTML = "Cancel";
   cancelButton.addEventListener("click", () => {
     body.innerHTML = "";
