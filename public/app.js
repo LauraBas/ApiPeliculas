@@ -11,6 +11,89 @@ document.addEventListener(
 let movieCard = document.getElementById("movies");
 const movieForm = document.querySelector("#movie-form");
 const editForm = document.getElementById("edit");
+const newMovieForm = document.getElementById("addMovieForm");
+const addMovieButton = document.getElementById("addMovie");
+
+addMovieButton.addEventListener("click", () => { printMovieForm() });
+
+function printMovieForm(){
+  const body = document.createElement("div");
+  body.className = "form-group"
+  body.style.cssText = "display: flex; flex-direction: column; max-width:20rem";
+
+  newMovieForm.appendChild(body);
+  const editNombre = document.createElement("input");
+  editNombre.className = "form-control";
+  editNombre.setAttribute("placeholder", "nombre");
+  editNombre.setAttribute("id", "nombre");
+  body.appendChild(editNombre);
+
+  const editDirector = document.createElement("input");
+  editDirector.className = "form-control";
+  editDirector.setAttribute("placeholder", "director");
+  editDirector.setAttribute("id", "director");
+  body.appendChild(editDirector);
+
+  const editImage = document.createElement("input");
+  editImage.className = "form-control";
+  editImage.setAttribute("placeholder", "image");
+  editImage.setAttribute("id", "image");
+  body.appendChild(editImage);
+
+  const editClasificacion = document.createElement("input");
+  editClasificacion.className = "form-control";
+  editClasificacion.setAttribute("placeholder", "clasificacion");
+  editClasificacion.setAttribute("id", "clasificacion");
+  body.appendChild(editClasificacion);
+
+  const addButton = document.createElement("button");
+  addButton.className = "btn btn-info";
+  addButton.innerHTML = "Done";
+  addButton.setAttribute("type", "submit");
+  body.appendChild(addButton);
+
+  const cancelButton = document.createElement("button");
+  cancelButton.className = "btn btn-danger";
+  cancelButton.innerHTML = "Cancel";
+  cancelButton.addEventListener("click", () => {
+    body.innerHTML = "";
+  });
+  body.appendChild(cancelButton);
+
+  const buttonDiv = document.createElement("div");
+  buttonDiv.className = "btn-group mr-2 form-group btn-div";
+  buttonDiv.appendChild(cancelButton);
+  buttonDiv.appendChild(addButton);
+
+  body.appendChild(buttonDiv);
+
+  newMovieForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log(e.target);
+  let formData = {
+    nombre: newMovieForm.querySelector("#nombre").value,
+    director: newMovieForm.querySelector("#director").value,
+    image: newMovieForm.querySelector("#image").value,
+    clasificacion: newMovieForm.querySelector("#clasificacion").value,
+  };
+
+  fetch("http://localhost:3000/peliculas", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ ...formData }),
+  })
+    .then((response) => response.json())
+    .then((movie) => {
+      printMovie(movie);
+    });
+});
+
+
+  
+
+}
 
 function printMovie(movie) {
   const cardMovie = document.createElement("div");
@@ -78,28 +161,7 @@ function getAllMovies() {
     });
 }
 
-movieForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  console.log(e.target);
-  let formData = {
-    nombre: movieForm.querySelector("#nombre").value,
-    director: movieForm.querySelector("#director").value,
-    image: movieForm.querySelector("#image").value,
-    clasificacion: movieForm.querySelector("#clasificacion").value,
-  };
 
-  fetch("http://localhost:3000/peliculas", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ ...formData }),
-  })
-    .then((response) => response.json())
-    .then((movie) => {
-      printMovie(movie);
-    });
-});
 
 function deleteMovie(movie) {
   let id = movie.id;

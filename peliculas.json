@@ -27,6 +27,13 @@
       "image": "img/amelie.jpg",
       "clasificacion": "drama",
       "id": 8
+    },
+    {
+      "id": 9,
+      "nombre": "The Beauty and the Beast",
+      "director": "James Cameron",
+      "image": "img/4.jpg",
+      "clasificacion": "drama"
     }
   ],
   "clasificaciones": [
