@@ -25,3 +25,23 @@ Crea con Postman un crud a la Api de películas
 
 - Modifica el Json a tu gusto y añade imágenes de portada de las películas
 
+
+### Home Page
+
+![](public/images/landing.jpg)
+
+### Movies 
+
+![](public/images/movies.jpg)
+
+### Add new Movie Form
+
+![](public/images/addMovie.jpg)
+
+### Edit Movie
+
+![](public/images/edit.jpg)
+
+
+
+

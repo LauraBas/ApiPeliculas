@@ -1,13 +1,6 @@
 {
   "peliculas": [
     {
-      "id": 4,
-      "nombre": "Titanic",
-      "director": "James Cameron",
-      "image": "img/titanic.jpg",
-      "clasificacion": "drama"
-    },
-    {
       "id": 6,
       "nombre": "TeneT",
       "director": "Christopher Nolan",
@@ -34,6 +27,48 @@
       "director": "James Cameron",
       "image": "img/4.jpg",
       "clasificacion": "drama"
+    },
+    {
+      "nombre": "Piratas del Caribe",
+      "director": "george lucas",
+      "image": "img/titanic.jpg",
+      "clasificacion": "drama",
+      "id": 10
+    },
+    {
+      "nombre": "Piratas del Caribe",
+      "director": "Jack Sparrow",
+      "image": "img/5.jpg",
+      "clasificacion": "drama",
+      "id": 11
+    },
+    {
+      "nombre": "Spider Man",
+      "director": "george lucas",
+      "image": "img/3.jpg",
+      "clasificacion": "accion",
+      "id": 13
+    },
+    {
+      "nombre": "Transformers",
+      "director": "george lucas",
+      "image": "img/7.jpg",
+      "clasificacion": "accion",
+      "id": 14
+    },
+    {
+      "nombre": "star wars",
+      "director": "george lucas",
+      "image": "img/8.jpg",
+      "clasificacion": "drama",
+      "id": 16
+    },
+    {
+      "nombre": "Amelie",
+      "director": "Jack Sparrow",
+      "image": "img/amelie.jpg",
+      "clasificacion": "drama",
+      "id": 20
     }
   ],
   "clasificaciones": [

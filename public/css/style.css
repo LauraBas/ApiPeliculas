@@ -95,4 +95,8 @@
     width:7em;
     margin: 0.4em;
   }
+
+  .homeslider  > .swiper-container > .swiper-wrapper > .swiper-slide > .caption{
+    position: initial;
+  }
   
