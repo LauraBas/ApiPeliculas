@@ -34,11 +34,11 @@ Crea con Postman un crud a la Api de películas
 
 ![](public/images/movies.jpg)
 
-### Add new Movie Form
+### Add New Movie Form
 
 ![](public/images/addMovie.jpg)
 
-### Edit Movie
+### Edit Movie Form
 
 ![](public/images/edit.jpg)
 
